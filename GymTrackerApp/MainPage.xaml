@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GymTrackerApp.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <!--  Add button  -->
+            <Button Command="{Binding AddItemCommand}" Text="Add new item" />
+
+            <!--  Dynamic list  -->
+            <CollectionView ItemsSource="{Binding Items}">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid ColumnDefinitions="*,*,Auto" ColumnSpacing="10">
+
+                            <!--  Text inputs  -->
+                            <Entry
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Placeholder="Exercise name"
+                                Text="{Binding ExerciseName}" />
+                            <Entry
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Placeholder="Exercise value"
+                                Text="{Binding ExerciseValue}" />
+
+                            <!--  Remove button  -->
+                            <Button
+                                Grid.Column="2"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.RemoveItemCommand}"
+                                CommandParameter="{Binding .}"
+                                Text="X" />
+
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
