@@ -1,0 +1,22 @@
+[
+  {
+    "ExerciseName": "Bench Press",
+    "RepsOrTime": "10 reps",
+    "Weight": "100 lbs"
+  },
+  {
+    "ExerciseName": "Squats",
+    "RepsOrTime": "15 reps",
+    "Weight": "150 lbs"
+  },
+  {
+    "ExerciseName": "Deadlifts",
+    "RepsOrTime": "8 reps",
+    "Weight": "200 lbs"
+  },
+  {
+    "ExerciseName": "Pull-ups",
+    "RepsOrTime": "12 reps",
+    "Weight": "Bodyweight"
+  }
+]

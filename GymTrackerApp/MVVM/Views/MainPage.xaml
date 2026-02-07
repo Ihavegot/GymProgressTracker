@@ -9,7 +9,19 @@
             <Label
                 FontSize="24"
                 HorizontalOptions="Center"
-                Text="Welcome to Gym Tracker!" />
+                Text="Products" />
+
+            <CollectionView x:Name="ProductsView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label FontSize="18" Text="{Binding ExerciseName}" />
+                            <Label Text="{Binding RepsOrTime, StringFormat='Reps or time: {0:C}'}" />
+                            <Label Text="{Binding Weight, StringFormat='Weight: {0:C}'}" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 
