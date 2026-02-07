@@ -1,5 +1,4 @@
-﻿using DynamicInputsApp.ViewModels;
-
+﻿
 namespace GymTrackerApp
 {
     public partial class MainPage : ContentPage
@@ -7,7 +6,6 @@ namespace GymTrackerApp
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new MainViewModel();
         }
     }
 }
