@@ -16,7 +16,8 @@ Simple .NET MAUI mobile app for tracking gym exercises and saving progress local
 
 ## 📦 Models & Data
 
-- [x] **GP-3 Implement Exercise model**
+- [ ] **GP-3 Implement Exercise model**
+  - [ ] Id (int)
   - [x] Name (string)
   - [x] RepsOrTime (string)
   - [x] Weight (string)
@@ -31,7 +32,6 @@ Simple .NET MAUI mobile app for tracking gym exercises and saving progress local
   - [ ] Save/load from FileSystem.AppDataDirectory/exercises.json
   - [x] LoadExercises()
   - [ ] SaveExercises()
-  - [ ] AddExercise()
   - [ ] DeleteExercise()
   - [ ] Handle missing/corrupted file
 
