@@ -9,45 +9,30 @@ namespace GymTrackerApp.MVVM.Services
     class ExerciseStorageService
     {
         public string FilePath = FileSystem.AppDataDirectory + "/SavedExerciseData.json";
+
         public async Task<List<Exercise>> Read()
         {
-            if (File.Exists(FilePath) == false)
-            {
+            if (!File.Exists(FilePath))
                 return new List<Exercise>();
-            }
 
-            var rawData = File.ReadAllText(FilePath);
-            if (rawData.Length == 0)
-            {
+            var rawData = await File.ReadAllTextAsync(FilePath);
+            if (string.IsNullOrEmpty(rawData))
                 return new List<Exercise>();
-            }
-            var deserializedExercise = JsonSerializer.Deserialize<List<Exercise>>(rawData);
 
-            if (deserializedExercise != null)
-            {
-                return deserializedExercise;
-            }
-
-            return new List<Exercise>();
+            return JsonSerializer.Deserialize<List<Exercise>>(rawData) ?? new List<Exercise>();
         }
 
         public async Task Write(Exercise exercise)
         {
-            var exerciseList = new List<Exercise>();
-            foreach (var item in await Read())
-            {
-                exerciseList.Add(item);
-            }
+            var exerciseList = await Read();
             exerciseList.Add(exercise);
-
-            var json = JsonSerializer.Serialize(exerciseList);
-            File.WriteAllText(FilePath, json);
+            await Write(exerciseList);
         }
 
         public async Task Write(List<Exercise> exerciseList)
         {
             var json = JsonSerializer.Serialize(exerciseList);
-            File.WriteAllText(FilePath, json);
+            await File.WriteAllTextAsync(FilePath, json);
         }
 
         public async Task Delete(string id)

@@ -1,14 +1,30 @@
 ﻿using GymTrackerApp.MVVM.Models;
+using GymTrackerApp.MVVM.Services;
 using System.Text.Json;
 
 namespace GymTrackerApp
 {
     public partial class MainPage : ContentPage
     {
+        private readonly ExerciseStorageService _exerciseService;
         public MainPage()
         {
             InitializeComponent();
-            ReadData();
+            _exerciseService = new ExerciseStorageService();
+            LoadExercises();
+        }
+
+        private async void LoadExercises()
+        {
+            try
+            {
+                var data = await _exerciseService.Read();
+                ProductsView.ItemsSource = data;
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlertAsync("Error", $"Failed to load exercises: {ex.Message}", "OK");
+            }
         }
 
         public async void ReadData()
@@ -20,32 +36,56 @@ namespace GymTrackerApp
 
         public async void SaveData(object sender, EventArgs e)
         {
-            var execrise = new MVVM.Services.ExerciseStorageService();
-            var data = new Exercise
+            try
             {
-                ExerciseName = exerciseNameEntry.Text,
-                RepsOrTime = repsOrTimeEntry.Text,
-                Weight = weightEntry.Text
-            };
-            await execrise.Write(data);
-            ReadData();
+                if (string.IsNullOrWhiteSpace(exerciseNameEntry.Text))
+                {
+                    await DisplayAlertAsync("Validation", "Please enter an exercise name", "OK");
+                    return;
+                }
+
+                var exercise = new Exercise
+                {
+                    ExerciseName = exerciseNameEntry.Text,
+                    RepsOrTime = repsOrTimeEntry.Text,
+                    Weight = weightEntry.Text
+                };
+
+                await _exerciseService.Write(exercise);
+
+                exerciseNameEntry.Text = string.Empty;
+                repsOrTimeEntry.Text = string.Empty;
+                weightEntry.Text = string.Empty;
+
+                LoadExercises();
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlertAsync("Error", $"Failed to save exercise: {ex.Message}", "OK");
+            }
         }
 
         public async void DeleteData(object sender, EventArgs e)
         {
-            var execrise = new MVVM.Services.ExerciseStorageService();
-            var data = await execrise.Read();
-
-            var button = sender as Button;
-            var exerciseButton = button?.CommandParameter as Exercise;
-
-            if (exerciseButton == null)
+            try
             {
-                return;
-            }
+                var button = sender as Button;
+                var exercise = button?.CommandParameter as Exercise;
 
-            await execrise.Delete(exerciseButton.Id);
-            ReadData();
+                if (exercise == null)
+                    return;
+
+                bool confirmed = await DisplayAlertAsync("Confirm", "Delete this exercise?", "Yes", "No");
+                if (confirmed)
+                {
+                    await _exerciseService.Delete(exercise.Id);
+                    LoadExercises();
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlertAsync("Error", $"Failed to delete exercise: {ex.Message}", "OK");
+            }
         }
     }
 }
