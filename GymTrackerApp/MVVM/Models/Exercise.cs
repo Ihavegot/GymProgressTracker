@@ -6,6 +6,7 @@ namespace GymTrackerApp.MVVM.Models
 {
     class Exercise
     {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public string ExerciseName { get; set; } = "";
         public string RepsOrTime { get; set; } = "0";
         public string Weight { get; set; } = "0";

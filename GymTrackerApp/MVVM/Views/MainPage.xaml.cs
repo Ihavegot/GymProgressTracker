@@ -30,5 +30,25 @@ namespace GymTrackerApp
             await execrise.Write(data);
             ReadData();
         }
+
+        public async void DeleteData(object sender, EventArgs e)
+        {
+            var execrise = new MVVM.Services.ExerciseStorageService();
+            var data = await execrise.Read();
+
+            var button = sender as Button;
+            var exercise = button?.CommandParameter as Exercise;
+
+            if (exercise == null)
+            {
+                return;
+            }
+
+            data.RemoveAll(x => x.Id == exercise.Id);
+
+            var json = JsonSerializer.Serialize(data);
+            File.WriteAllText(execrise.FilePath, json);
+            ReadData();
+        }
     }
 }

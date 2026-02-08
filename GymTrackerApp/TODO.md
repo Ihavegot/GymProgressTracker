@@ -16,15 +16,11 @@ Simple .NET MAUI mobile app for tracking gym exercises and saving progress local
 
 ## 📦 Models & Data
 
-- [ ] **GP-3 Implement Exercise model**
-  - [ ] Id (int)
+- [x] **GP-3 Implement Exercise model**
+  - [x] Id (string)
   - [x] Name (string)
   - [x] RepsOrTime (string)
   - [x] Weight (string)
-
-- [ ] **GP-4 Prepare data collection**
-  - [ ] ObservableCollection<Exercise>
-  - [ ] Basic mapping ready for JSON serialization
 
 ## 💾 Local Storage
 
