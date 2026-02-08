@@ -4,9 +4,9 @@ using System.Text;
 
 namespace GymTrackerApp.MVVM.Models
 {
-    class ExerciseModel
+    class Exercise
     {
-        public string ExerciseName { get; set; } = string.Empty;
+        public string ExerciseName { get; set; } = "";
         public string RepsOrTime { get; set; } = "0";
         public string Weight { get; set; } = "0";
     }
