@@ -43,5 +43,18 @@ namespace GymTrackerApp.MVVM.Services
             var json = JsonSerializer.Serialize(exerciseList);
             File.WriteAllText(FilePath, json);
         }
+
+        public async Task Write(List<Exercise> exerciseList)
+        {
+            var json = JsonSerializer.Serialize(exerciseList);
+            File.WriteAllText(FilePath, json);
+        }
+
+        public async Task Delete(string id)
+        {
+            var data = await Read();
+            data.RemoveAll(x => x.Id == id);
+            await Write(data);
+        }
     }
 }

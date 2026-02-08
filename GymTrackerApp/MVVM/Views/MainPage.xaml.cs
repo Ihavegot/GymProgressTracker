@@ -37,17 +37,14 @@ namespace GymTrackerApp
             var data = await execrise.Read();
 
             var button = sender as Button;
-            var exercise = button?.CommandParameter as Exercise;
+            var exerciseButton = button?.CommandParameter as Exercise;
 
-            if (exercise == null)
+            if (exerciseButton == null)
             {
                 return;
             }
 
-            data.RemoveAll(x => x.Id == exercise.Id);
-
-            var json = JsonSerializer.Serialize(data);
-            File.WriteAllText(execrise.FilePath, json);
+            await execrise.Delete(exerciseButton.Id);
             ReadData();
         }
     }
