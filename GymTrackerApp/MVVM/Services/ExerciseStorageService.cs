@@ -9,27 +9,38 @@ namespace GymTrackerApp.MVVM.Services
     class ExerciseStorageService
     {
         public string FilePath = FileSystem.AppDataDirectory + "/SavedExerciseData.json";
-        public async Task<Exercise> Read()
+        public async Task<List<Exercise>> Read()
         {
             if (File.Exists(FilePath) == false)
             {
-                return new Exercise();
+                return new List<Exercise>();
             }
 
             var rawData = File.ReadAllText(FilePath);
-            var deserializedExercise = JsonSerializer.Deserialize<Exercise>(rawData);
+            if (rawData.Length == 0)
+            {
+                return new List<Exercise>();
+            }
+            var deserializedExercise = JsonSerializer.Deserialize<List<Exercise>>(rawData);
 
             if (deserializedExercise != null)
             {
                 return deserializedExercise;
             }
 
-            return new Exercise();
+            return new List<Exercise>();
         }
 
         public async Task Write(Exercise exercise)
         {
-            var json = JsonSerializer.Serialize(exercise);
+            var exerciseList = new List<Exercise>();
+            foreach (var item in await Read())
+            {
+                exerciseList.Add(item);
+            }
+            exerciseList.Add(exercise);
+
+            var json = JsonSerializer.Serialize(exerciseList);
             File.WriteAllText(FilePath, json);
         }
     }

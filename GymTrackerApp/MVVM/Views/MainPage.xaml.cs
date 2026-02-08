@@ -15,11 +15,7 @@ namespace GymTrackerApp
         {
             var execrise = new MVVM.Services.ExerciseStorageService();
             var data = await execrise.Read();
-
-            exerciseNameOutput.Text = data.ExerciseName;
-            repsOrTimeOutput.Text = data.RepsOrTime;
-            weightOutput.Text = data.Weight;
-
+            ProductsView.ItemsSource = data;
         }
 
         public async void SaveData(object sender, EventArgs e)

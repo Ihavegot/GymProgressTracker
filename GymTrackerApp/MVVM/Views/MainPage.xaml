@@ -11,7 +11,7 @@
                 HorizontalOptions="Center"
                 Text="Products" />
 
-            <!--CollectionView x:Name="ProductsView">
+            <CollectionView x:Name="ProductsView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <VerticalStackLayout>
@@ -21,13 +21,13 @@
                         </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView-->
+            </CollectionView>
 
-            <VerticalStackLayout>
+            <!--VerticalStackLayout>
                 <Label x:Name="exerciseNameOutput" FontSize="18" />
                 <Label x:Name="repsOrTimeOutput" />
                 <Label x:Name="weightOutput" />
-            </VerticalStackLayout>
+            </VerticalStackLayout-->
 
             <VerticalStackLayout>
                 <Entry x:Name="exerciseNameEntry" Placeholder="Exercise Name" />
