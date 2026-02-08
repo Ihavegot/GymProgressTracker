@@ -31,7 +31,7 @@ Simple .NET MAUI mobile app for tracking gym exercises and saving progress local
 - [ ] **GP-5 Implement JSON storage service**
   - [ ] Save/load from FileSystem.AppDataDirectory/exercises.json
   - [x] LoadExercises()
-  - [ ] SaveExercises()
+  - [x] SaveExercises()
   - [ ] DeleteExercise()
   - [ ] Handle missing/corrupted file
 
