@@ -34,36 +34,36 @@ namespace GymTrackerApp
             ProductsView.ItemsSource = data;
         }
 
-        public async void SaveData(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(exerciseNameEntry.Text))
-                {
-                    await DisplayAlertAsync("Validation", "Please enter an exercise name", "OK");
-                    return;
-                }
+        //public async void SaveData(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (string.IsNullOrWhiteSpace(exerciseNameEntry.Text))
+        //        {
+        //            await DisplayAlertAsync("Validation", "Please enter an exercise name", "OK");
+        //            return;
+        //        }
 
-                var exercise = new Exercise
-                {
-                    ExerciseName = exerciseNameEntry.Text,
-                    RepsOrTime = repsOrTimeEntry.Text,
-                    Weight = weightEntry.Text
-                };
+        //        var exercise = new Exercise
+        //        {
+        //            ExerciseName = exerciseNameEntry.Text,
+        //            RepsOrTime = repsOrTimeEntry.Text,
+        //            Weight = weightEntry.Text
+        //        };
 
-                await _exerciseService.Write(exercise);
+        //        await _exerciseService.Write(exercise);
 
-                exerciseNameEntry.Text = string.Empty;
-                repsOrTimeEntry.Text = string.Empty;
-                weightEntry.Text = string.Empty;
+        //        exerciseNameEntry.Text = string.Empty;
+        //        repsOrTimeEntry.Text = string.Empty;
+        //        weightEntry.Text = string.Empty;
 
-                LoadExercises();
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlertAsync("Error", $"Failed to save exercise: {ex.Message}", "OK");
-            }
-        }
+        //        LoadExercises();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await DisplayAlertAsync("Error", $"Failed to save exercise: {ex.Message}", "OK");
+        //    }
+        //}
 
         public async void DeleteData(object sender, EventArgs e)
         {
