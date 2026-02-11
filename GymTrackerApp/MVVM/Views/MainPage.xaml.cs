@@ -1,5 +1,6 @@
 ﻿using GymTrackerApp.MVVM.Models;
 using GymTrackerApp.MVVM.Services;
+using GymTrackerApp.MVVM.Views;
 using System.Text.Json;
 
 namespace GymTrackerApp
@@ -13,6 +14,13 @@ namespace GymTrackerApp
             _exerciseService = new ExerciseStorageService();
             LoadExercises();
         }
+
+        private async void OnNavigateClicked(object sender, EventArgs e)
+        {
+            // TODO: Fix navigation to AddExercisePage
+            await Shell.Current.GoToAsync(nameof(AddExercisePage));
+        }
+
 
         private async void LoadExercises()
         {

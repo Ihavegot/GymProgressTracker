@@ -63,6 +63,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <Button Clicked="OnNavigateClicked" Text="Go to Second Page" />
 
             <!--VerticalStackLayout>
                 <Entry x:Name="exerciseNameEntry" Placeholder="Exercise Name" />

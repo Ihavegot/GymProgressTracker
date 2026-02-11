@@ -1,14 +1,13 @@
-﻿using GymTrackerApp.MVVM.Views;
+using Microsoft.Maui.Controls;
 
-namespace GymTrackerApp
+namespace GymTrackerApp.MVVM.Views
 {
-    public partial class AppShell : Shell
+    public partial class AddExercisePage : ContentView
     {
-        public AppShell()
+        public AddExercisePage()
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(AddExercisePage), typeof(AddExercisePage));
-
         }
     }
 }
