@@ -31,7 +31,7 @@ namespace GymTrackerApp
             }
             catch (Exception ex)
             {
-                await DisplayAlertAsync("Error", $"Failed to load exercises: {ex.Message}", "OK");
+                await DisplayAlert("Error", $"Failed to load exercises: {ex.Message}", "OK");
             }
         }
 
@@ -83,7 +83,7 @@ namespace GymTrackerApp
                 if (exercise == null)
                     return;
 
-                bool confirmed = await DisplayAlertAsync("Confirm", "Delete this exercise?", "Yes", "No");
+                bool confirmed = await DisplayAlert("Confirm", "Delete this exercise?", "Yes", "No");
                 if (confirmed)
                 {
                     await _exerciseService.Delete(exercise.Id);
@@ -92,7 +92,7 @@ namespace GymTrackerApp
             }
             catch (Exception ex)
             {
-                await DisplayAlertAsync("Error", $"Failed to delete exercise: {ex.Message}", "OK");
+                await DisplayAlert("Error", $"Failed to delete exercise: {ex.Message}", "OK");
             }
         }
     }
