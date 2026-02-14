@@ -3,8 +3,8 @@
 
     <!--  Note: For Android please see also Platforms\Android\Resources\values\colors.xml  -->
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="PrimaryDark">#ac99ea</Color>
+    <Color x:Key="Primary">#13ec5b</Color>
+    <Color x:Key="PrimaryDark">#0ea849</Color>
     <Color x:Key="PrimaryDarkText">#242424</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
@@ -29,6 +29,11 @@
     <Color x:Key="AppHeaderBackgroundColorHeader">#0a160c</Color>
     <Color x:Key="AppBackgroundColor">#0a160d</Color>
     <Color x:Key="AppItemBackgroundColor">#162219</Color>
+    <Color x:Key="PrimaryLight">#13ec5b</Color>
+    <Color x:Key="PrimaryWithAlpha20">#3313ec5b</Color>
+    <Color x:Key="PrimaryWithAlpha10">#1A13ec5b</Color>
+    <Color x:Key="BorderColor">#1AFFFFFF</Color>
+    <Color x:Key="TextSecondary">#94a3b8</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />

@@ -3,79 +3,238 @@
     x:Class="GymTrackerApp.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Shell.BackgroundColor="{StaticResource AppHeaderBackgroundColorHeader}">
+    BackgroundColor="{StaticResource AppBackgroundColor}">
 
-    <ScrollView BackgroundColor="{StaticResource AppBackgroundColor}">
-        <VerticalStackLayout Padding="20" Spacing="10">
-            <Label
-                FontSize="24"
-                HorizontalOptions="Start"
-                Text="Saved sessions" />
+    <Grid>
+        <!-- Main Content -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <CollectionView
-                x:Name="ProductsView"
-                BackgroundColor="{StaticResource AppItemBackgroundColor}"
-                ItemsSource="{Binding Exercise}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <VerticalStackLayout>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="8*" />
-                                    <ColumnDefinition Width="2*" />
-                                </Grid.ColumnDefinitions>
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    BackgroundColor="LightBlue"
-                                    FontSize="18"
-                                    Text="{Binding ExerciseName}" />
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    BackgroundColor="LightGreen"
-                                    Text="{Binding RepsOrTime, StringFormat='Reps or time: {0:C}'}" />
-                                <Label
-                                    Grid.Row="2"
-                                    Grid.Column="0"
-                                    BackgroundColor="LightCoral"
-                                    Text="{Binding Weight, StringFormat='Weight: {0:C}'}" />
-                                <Button
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                    BackgroundColor="Lime"
-                                    Clicked="DeleteData"
-                                    CommandParameter="{Binding .}"
-                                    CornerRadius="50"
-                                    HeightRequest="65"
-                                    HorizontalOptions="End"
-                                    Shadow="Lime 0.1 0.1"
-                                    Text="X"
-                                    TextColor="Black"
-                                    WidthRequest="65" />
-                            </Grid>
-                        </VerticalStackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <Button Clicked="OnNavigateClicked" Text="Go to Second Page" />
+        <!-- Header -->
+        <Border
+            Grid.Row="0"
+            Padding="24,16"
+            BackgroundColor="{StaticResource AppHeaderBackgroundColorHeader}"
+            StrokeThickness="0">
+            <Border.Shadow>
+                <Shadow
+                    Brush="Black"
+                    Opacity="0.1"
+                    Radius="10"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <HorizontalStackLayout Spacing="12">
+                <!-- Profile Picture -->
+                <Border
+                    HeightRequest="40"
+                    StrokeThickness="1"
+                    WidthRequest="40">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    <Border.Stroke>
+                        <LinearGradientBrush>
+                            <GradientStop Offset="0.0" Color="{StaticResource PrimaryWithAlpha20}" />
+                            <GradientStop Offset="1.0" Color="{StaticResource Primary}" />
+                        </LinearGradientBrush>
+                    </Border.Stroke>
+                    <Border BackgroundColor="{StaticResource PrimaryWithAlpha20}">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            Text="💪"
+                            TextColor="{StaticResource Primary}"
+                            VerticalOptions="Center" />
+                    </Border>
+                </Border>
 
-            <!--VerticalStackLayout>
-                <Entry x:Name="exerciseNameEntry" Placeholder="Exercise Name" />
-                <Entry x:Name="repsOrTimeEntry" Placeholder="Reps or Time" />
-                <Entry x:Name="weightEntry" Placeholder="Weight" />
+                <!-- Title -->
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Gym Progress"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Border>
+
+        <!-- Scrollable Content -->
+        <ScrollView Grid.Row="1" Padding="24,24,24,100">
+            <VerticalStackLayout Spacing="20">
+                <!-- Session Header -->
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        CharacterSpacing="2"
+                        Text="TODAY'S SESSION"
+                        TextColor="{StaticResource Primary}" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="36"
+                        Text="Push Day"
+                        TextColor="White" />
+                </VerticalStackLayout>
+
+                <!-- Exercise List -->
+                <CollectionView x:Name="ProductsView" ItemsSource="{Binding Exercise}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Exercise Card -->
+                            <Border
+                                Padding="20"
+                                BackgroundColor="{StaticResource AppItemBackgroundColor}"
+                                StrokeThickness="1">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="16" />
+                                </Border.StrokeShape>
+                                <Border.Stroke>
+                                    <SolidColorBrush Color="{StaticResource BorderColor}" />
+                                </Border.Stroke>
+                                <Border.Shadow>
+                                    <Shadow
+                                        Brush="Black"
+                                        Opacity="0.1"
+                                        Radius="8"
+                                        Offset="0,2" />
+                                </Border.Shadow>
+
+                                <Grid ColumnSpacing="16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Icon Circle -->
+                                    <Border
+                                        Grid.Column="0"
+                                        HeightRequest="48"
+                                        StrokeThickness="0"
+                                        VerticalOptions="Center"
+                                        WidthRequest="48">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="24" />
+                                        </Border.StrokeShape>
+                                        <Border BackgroundColor="{StaticResource PrimaryWithAlpha10}">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="24" />
+                                            </Border.StrokeShape>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="24"
+                                                HorizontalOptions="Center"
+                                                Text="🏋"
+                                                TextColor="{StaticResource Primary}"
+                                                VerticalOptions="Center" />
+                                        </Border>
+                                    </Border>
+
+                                    <!-- Exercise Info -->
+                                    <VerticalStackLayout
+                                        Grid.Column="1"
+                                        Spacing="4"
+                                        VerticalOptions="Center">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="18"
+                                            LineBreakMode="TailTruncation"
+                                            Text="{Binding ExerciseName}"
+                                            TextColor="White" />
+                                        <HorizontalStackLayout Spacing="8">
+                                            <Label TextColor="{StaticResource TextSecondary}">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span
+                                                            FontAttributes="Bold"
+                                                            Text="{Binding RepsOrTime}"
+                                                            TextColor="{StaticResource Primary}" />
+                                                        <Span Text=" Reps" />
+                                                        <Span Text=" • " TextColor="#4DFFFFFF" />
+                                                        <Span
+                                                            FontAttributes="Bold"
+                                                            Text="{Binding Weight}"
+                                                            TextColor="{StaticResource Primary}" />
+                                                        <Span Text=" kg" />
+                                                        <Span TextColor="#4DFFFFFF" Text=" • " />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+
+                                    <!-- Delete Button -->
+                                    <Border
+                                        Grid.Column="2"
+                                        Padding="8"
+                                        BackgroundColor="Transparent"
+                                        StrokeThickness="0"
+                                        VerticalOptions="Center">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="12" />
+                                        </Border.StrokeShape>
+                                        <Border.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding Source={x:Reference ProductsView}, Path=BindingContext.DeleteCommand}"
+                                                CommandParameter="{Binding .}" />
+                                        </Border.GestureRecognizers>
+                                        <Label
+                                            FontSize="20"
+                                            Text="✕"
+                                            TextColor="{StaticResource TextSecondary}" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </VerticalStackLayout>
+        </ScrollView>
 
-            <Button
-                Clicked="SaveData"
-                HorizontalOptions="Center"
-                Text="Add Product" /-->
-        </VerticalStackLayout>
-    </ScrollView>
+        <!-- Floating Action Button -->
+        <Border
+            Grid.Row="1"
+            Margin="0,0,24,40"
+            HeightRequest="64"
+            HorizontalOptions="End"
+            StrokeThickness="0"
+            VerticalOptions="End"
+            WidthRequest="64">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="32" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow
+                    Brush="{StaticResource Primary}"
+                    Opacity="0.4"
+                    Radius="20"
+                    Offset="0,8" />
+            </Border.Shadow>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnNavigateClicked" />
+            </Border.GestureRecognizers>
+            <Border BackgroundColor="{StaticResource Primary}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="32" />
+                </Border.StrokeShape>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="36"
+                    HorizontalOptions="Center"
+                    Text="+"
+                    TextColor="{StaticResource AppBackgroundColor}"
+                    VerticalOptions="Center" />
+            </Border>
+        </Border>
+    </Grid>
 
 </ContentPage>
