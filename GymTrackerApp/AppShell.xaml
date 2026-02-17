@@ -7,7 +7,6 @@
     Title="GymTrackerApp">
 
     <ShellContent
-        Title="🏋️ Gym Progress"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

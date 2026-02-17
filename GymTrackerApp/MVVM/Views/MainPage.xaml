@@ -9,6 +9,7 @@
         <!-- Main Content -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -64,8 +65,15 @@
             </HorizontalStackLayout>
         </Border>
 
+        <!-- Split Line -->
+        <BoxView
+            Grid.Row="1"
+            HeightRequest="1"
+            Color="{StaticResource Primary}"
+            HorizontalOptions="Fill" />
+
         <!-- Scrollable Content -->
-        <ScrollView Grid.Row="1" Padding="24,24,24,100">
+        <ScrollView Grid.Row="2" Padding="24,24,24,100">
             <VerticalStackLayout Spacing="20">
                 <!-- Session Header -->
                 <VerticalStackLayout Spacing="8">
@@ -198,7 +206,7 @@
 
         <!-- Floating Action Button -->
         <Border
-            Grid.Row="1"
+            Grid.Row="2"
             Margin="0,0,24,40"
             HeightRequest="64"
             HorizontalOptions="End"
@@ -208,13 +216,6 @@
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="32" />
             </Border.StrokeShape>
-            <Border.Shadow>
-                <Shadow
-                    Brush="{StaticResource Primary}"
-                    Opacity="0.4"
-                    Radius="20"
-                    Offset="0,8" />
-            </Border.Shadow>
             <Border.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnNavigateClicked" />
             </Border.GestureRecognizers>
