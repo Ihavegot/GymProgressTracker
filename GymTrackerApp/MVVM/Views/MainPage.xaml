@@ -177,15 +177,16 @@
                                         <Border.StrokeShape>
                                             <RoundRectangle CornerRadius="12" />
                                         </Border.StrokeShape>
-                                        <Border.GestureRecognizers>
-                                            <TapGestureRecognizer
-                                                Command="{Binding Source={x:Reference ProductsView}, Path=BindingContext.DeleteCommand}"
-                                                CommandParameter="{Binding .}" />
-                                        </Border.GestureRecognizers>
-                                        <Label
-                                            FontSize="20"
+                                        <Button
+                                            BackgroundColor="Transparent"
+                                            CommandParameter="{Binding .}"
+                                            Clicked="DeleteData"
                                             Text="✕"
-                                            TextColor="{StaticResource TextSecondary}" />
+                                            TextColor="{StaticResource TextSecondary}"
+                                            FontSize="20"
+                                            Padding="0"
+                                            HeightRequest="40"
+                                            WidthRequest="40" />
                                     </Border>
                                 </Grid>
                             </Border>
