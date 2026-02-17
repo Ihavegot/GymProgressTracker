@@ -71,15 +71,10 @@
                 <VerticalStackLayout Spacing="8">
                     <Label
                         FontAttributes="Bold"
-                        FontSize="12"
+                        FontSize="22"
                         CharacterSpacing="2"
-                        Text="TODAY'S SESSION"
+                        Text="Saved sessions"
                         TextColor="{StaticResource Primary}" />
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="36"
-                        Text="Push Day"
-                        TextColor="White" />
                 </VerticalStackLayout>
 
                 <!-- Exercise List -->

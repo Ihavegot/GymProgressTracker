@@ -8,7 +8,6 @@ namespace GymTrackerApp
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(AddExercisePage), typeof(AddExercisePage));
-
         }
     }
 }

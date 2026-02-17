@@ -12,15 +12,18 @@ namespace GymTrackerApp
         {
             InitializeComponent();
             _exerciseService = new ExerciseStorageService();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             LoadExercises();
         }
 
         private async void OnNavigateClicked(object sender, EventArgs e)
         {
-            // TODO: Fix navigation to AddExercisePage
             await Shell.Current.GoToAsync(nameof(AddExercisePage));
         }
-
 
         private async void LoadExercises()
         {
@@ -34,44 +37,6 @@ namespace GymTrackerApp
                 await DisplayAlert("Error", $"Failed to load exercises: {ex.Message}", "OK");
             }
         }
-
-        public async void ReadData()
-        {
-            var execrise = new MVVM.Services.ExerciseStorageService();
-            var data = await execrise.Read();
-            ProductsView.ItemsSource = data;
-        }
-
-        //public async void SaveData(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (string.IsNullOrWhiteSpace(exerciseNameEntry.Text))
-        //        {
-        //            await DisplayAlertAsync("Validation", "Please enter an exercise name", "OK");
-        //            return;
-        //        }
-
-        //        var exercise = new Exercise
-        //        {
-        //            ExerciseName = exerciseNameEntry.Text,
-        //            RepsOrTime = repsOrTimeEntry.Text,
-        //            Weight = weightEntry.Text
-        //        };
-
-        //        await _exerciseService.Write(exercise);
-
-        //        exerciseNameEntry.Text = string.Empty;
-        //        repsOrTimeEntry.Text = string.Empty;
-        //        weightEntry.Text = string.Empty;
-
-        //        LoadExercises();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        await DisplayAlertAsync("Error", $"Failed to save exercise: {ex.Message}", "OK");
-        //    }
-        //}
 
         public async void DeleteData(object sender, EventArgs e)
         {
