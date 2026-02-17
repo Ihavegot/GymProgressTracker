@@ -106,7 +106,6 @@
                                 x:Name="RepsOrTimeEntry"
                                 BackgroundColor="Transparent"
                                 FontSize="16"
-                                Keyboard="Numeric"
                                 Placeholder="e.g. 12"
                                 PlaceholderColor="{StaticResource TextSecondary}"
                                 TextColor="White" />
@@ -143,7 +142,6 @@
                                 x:Name="WeightEntry"
                                 BackgroundColor="Transparent"
                                 FontSize="16"
-                                Keyboard="Numeric"
                                 Placeholder="e.g. 80"
                                 PlaceholderColor="{StaticResource TextSecondary}"
                                 TextColor="White" />
