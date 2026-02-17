@@ -12,4 +12,6 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+    
+    <Application.UserAppTheme>Dark</Application.UserAppTheme>
 </Application>

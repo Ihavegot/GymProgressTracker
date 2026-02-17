@@ -26,7 +26,7 @@
     <Color x:Key="Gray950">#141414</Color>
 
     <!--  App styles  -->
-    <Color x:Key="AppHeaderBackgroundColorHeader">#0a160c</Color>
+    <Color x:Key="AppHeaderBackgroundColorHeader">#0a1206</Color>
     <Color x:Key="AppBackgroundColor">#0a160d</Color>
     <Color x:Key="AppItemBackgroundColor">#162219</Color>
     <Color x:Key="PrimaryLight">#13ec5b</Color>
