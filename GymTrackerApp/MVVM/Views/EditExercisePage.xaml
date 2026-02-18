@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="GymTrackerApp.MVVM.Views.AddExercisePage"
+    x:Class="GymTrackerApp.MVVM.Views.EditExercisePage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="{StaticResource AppBackgroundColor}">
@@ -18,7 +18,7 @@
                     FontAttributes="Bold"
                     FontSize="20"
                     HorizontalOptions="Start"
-                    Text="Add Exercise"
+                    Text="Edit Exercise"
                     TextColor="White"
                     VerticalOptions="Center" />
             </Grid>
@@ -34,33 +34,13 @@
         <!-- Form Content -->
         <ScrollView Grid.Row="2" Padding="24">
             <VerticalStackLayout Spacing="24">
-                <!-- Icon -->
-                <Border
-                    HeightRequest="80"
-                    HorizontalOptions="Center"
-                    StrokeThickness="0"
-                    WidthRequest="80">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="40" />
-                    </Border.StrokeShape>
-                    <Border BackgroundColor="{StaticResource PrimaryWithAlpha10}">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="40" />
-                        </Border.StrokeShape>
-                        <Label
-                            FontSize="40"
-                            HorizontalOptions="Center"
-                            Text="🏋"
-                            VerticalOptions="Center" />
-                    </Border>
-                </Border>
-
+                
                 <!-- Exercise Name -->
                 <VerticalStackLayout Spacing="8">
                     <Label
                         FontAttributes="Bold"
                         FontSize="14"
-                        CharacterSpacing="1"
+                        CharacterSpacing="2"
                         Text="EXERCISE NAME"
                         TextColor="{StaticResource Primary}" />
                     <Border
@@ -123,7 +103,7 @@
                 <VerticalStackLayout Spacing="8">
                     <Label
                         FontAttributes="Bold"
-                        FontSize="14"
+                        FontSize="14"   
                         CharacterSpacing="1"
                         Text="WEIGHT"
                         TextColor="{StaticResource Primary}" />
@@ -203,11 +183,10 @@
                     FontAttributes="Bold"
                     FontSize="18"
                     HorizontalOptions="Center"
-                    Text="Save Exercise"
+                    Text="Save Changes"
                     TextColor="{StaticResource AppBackgroundColor}"
                     VerticalOptions="Center" />
             </Border>
         </Border>
     </Grid>
-
 </ContentPage>

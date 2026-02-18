@@ -1,7 +1,6 @@
 ﻿using GymTrackerApp.MVVM.Models;
 using GymTrackerApp.MVVM.Services;
 using GymTrackerApp.MVVM.Views;
-using System.Text.Json;
 
 namespace GymTrackerApp
 {
@@ -23,6 +22,24 @@ namespace GymTrackerApp
         private async void OnNavigateClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(AddExercisePage));
+        }
+
+        private async void OnExerciseTapped(object sender, EventArgs e)
+        {
+            try
+            {
+                var gesture = sender as Element;
+                var exercise = gesture?.BindingContext as Exercise;
+
+                if (exercise == null)
+                    return;
+
+                await Shell.Current.GoToAsync($"{nameof(EditExercisePage)}?id={exercise.Id}");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Failed to navigate to edit page: {ex.Message}", "OK");
+            }
         }
 
         private async void LoadExercises()

@@ -35,6 +35,17 @@ namespace GymTrackerApp.MVVM.Services
             await File.WriteAllTextAsync(FilePath, json);
         }
 
+        public async Task Update(Exercise exercise)
+        {
+            var data = await Read();
+            var index = data.FindIndex(x => x.Id == exercise.Id);
+            if (index != -1)
+            {
+                data[index] = exercise;
+                await Write(data);
+            }
+        }
+
         public async Task Delete(string id)
         {
             var data = await Read();
