@@ -60,7 +60,7 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="14"
-                        CharacterSpacing="2"
+                        CharacterSpacing="1"
                         Text="EXERCISE NAME"
                         TextColor="{StaticResource Primary}" />
                     <Border
@@ -88,7 +88,7 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="14"
-                        CharacterSpacing="2"
+                        CharacterSpacing="1"
                         Text="REPETITIONS"
                         TextColor="{StaticResource Primary}" />
                     <Border
@@ -124,7 +124,7 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="14"
-                        CharacterSpacing="2"
+                        CharacterSpacing="1"
                         Text="WEIGHT"
                         TextColor="{StaticResource Primary}" />
                     <Border

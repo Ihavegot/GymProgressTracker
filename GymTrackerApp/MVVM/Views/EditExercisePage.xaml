@@ -5,58 +5,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="{StaticResource AppBackgroundColor}">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
+    <Grid RowDefinitions="Auto,Auto,*,Auto,Auto">
         <!-- Header -->
         <Border
             Grid.Row="0"
             Padding="24,16"
             BackgroundColor="{StaticResource AppHeaderBackgroundColorHeader}"
             StrokeThickness="0">
-            <Border.Shadow>
-                <Shadow
-                    Brush="Black"
-                    Opacity="0.1"
-                    Radius="10"
-                    Offset="0,2" />
-            </Border.Shadow>
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <!-- Back Button -->
-                <Border
-                    Grid.Column="0"
-                    Padding="8"
-                    BackgroundColor="Transparent"
-                    StrokeThickness="0"
-                    VerticalOptions="Center">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="12" />
-                    </Border.StrokeShape>
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnBackClicked" />
-                    </Border.GestureRecognizers>
-                    <Label
-                        FontSize="24"
-                        Text="←"
-                        TextColor="White"
-                        VerticalOptions="Center" />
-                </Border>
-
                 <!-- Title -->
                 <Label
-                    Grid.Column="1"
-                    Margin="12,0,0,0"
                     FontAttributes="Bold"
                     FontSize="20"
+                    HorizontalOptions="Start"
                     Text="Edit Exercise"
                     TextColor="White"
                     VerticalOptions="Center" />
@@ -73,15 +34,17 @@
         <!-- Form Content -->
         <ScrollView Grid.Row="2" Padding="24">
             <VerticalStackLayout Spacing="24">
+                
                 <!-- Exercise Name -->
                 <VerticalStackLayout Spacing="8">
                     <Label
                         FontAttributes="Bold"
                         FontSize="14"
-                        Text="Exercise Name"
-                        TextColor="{StaticResource TextSecondary}" />
+                        CharacterSpacing="2"
+                        Text="EXERCISE NAME"
+                        TextColor="{StaticResource Primary}" />
                     <Border
-                        Padding="16,12"
+                        Padding="16"
                         BackgroundColor="{StaticResource AppItemBackgroundColor}"
                         StrokeThickness="1">
                         <Border.StrokeShape>
@@ -93,7 +56,8 @@
                         <Entry
                             x:Name="ExerciseNameEntry"
                             BackgroundColor="Transparent"
-                            Placeholder="Enter exercise name"
+                            FontSize="16"
+                            Placeholder="e.g. Bench Press"
                             PlaceholderColor="{StaticResource TextSecondary}"
                             TextColor="White" />
                     </Border>
@@ -104,10 +68,11 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="14"
-                        Text="Reps/Time"
-                        TextColor="{StaticResource TextSecondary}" />
+                        CharacterSpacing="1"
+                        Text="REPETITIONS"
+                        TextColor="{StaticResource Primary}" />
                     <Border
-                        Padding="16,12"
+                        Padding="16"
                         BackgroundColor="{StaticResource AppItemBackgroundColor}"
                         StrokeThickness="1">
                         <Border.StrokeShape>
@@ -116,13 +81,21 @@
                         <Border.Stroke>
                             <SolidColorBrush Color="{StaticResource BorderColor}" />
                         </Border.Stroke>
-                        <Entry
-                            x:Name="RepsOrTimeEntry"
-                            BackgroundColor="Transparent"
-                            Keyboard="Numeric"
-                            Placeholder="Enter reps or time"
-                            PlaceholderColor="{StaticResource TextSecondary}"
-                            TextColor="White" />
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Entry
+                                x:Name="RepsOrTimeEntry"
+                                BackgroundColor="Transparent"
+                                FontSize="16"
+                                Placeholder="e.g. 12"
+                                PlaceholderColor="{StaticResource TextSecondary}"
+                                TextColor="White" />
+                            <Label
+                                Grid.Column="1"
+                                FontSize="14"
+                                Text=" reps"
+                                TextColor="{StaticResource TextSecondary}"
+                                VerticalOptions="Center" />
+                        </Grid>
                     </Border>
                 </VerticalStackLayout>
 
@@ -130,11 +103,12 @@
                 <VerticalStackLayout Spacing="8">
                     <Label
                         FontAttributes="Bold"
-                        FontSize="14"
-                        Text="Weight (kg)"
-                        TextColor="{StaticResource TextSecondary}" />
+                        FontSize="14"   
+                        CharacterSpacing="1"
+                        Text="WEIGHT"
+                        TextColor="{StaticResource Primary}" />
                     <Border
-                        Padding="16,12"
+                        Padding="16"
                         BackgroundColor="{StaticResource AppItemBackgroundColor}"
                         StrokeThickness="1">
                         <Border.StrokeShape>
@@ -143,36 +117,76 @@
                         <Border.Stroke>
                             <SolidColorBrush Color="{StaticResource BorderColor}" />
                         </Border.Stroke>
-                        <Entry
-                            x:Name="WeightEntry"
-                            BackgroundColor="Transparent"
-                            Keyboard="Numeric"
-                            Placeholder="Enter weight"
-                            PlaceholderColor="{StaticResource TextSecondary}"
-                            TextColor="White" />
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Entry
+                                x:Name="WeightEntry"
+                                BackgroundColor="Transparent"
+                                FontSize="16"
+                                Placeholder="e.g. 80"
+                                PlaceholderColor="{StaticResource TextSecondary}"
+                                TextColor="White" />
+                            <Label
+                                Grid.Column="1"
+                                FontSize="14"
+                                Text=" kg"
+                                TextColor="{StaticResource TextSecondary}"
+                                VerticalOptions="Center" />
+                        </Grid>
                     </Border>
                 </VerticalStackLayout>
-
-                <!-- Save Button -->
-                <Border
-                    Margin="0,16,0,0"
-                    Padding="16"
-                    BackgroundColor="{StaticResource Primary}"
-                    StrokeThickness="0">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="12" />
-                    </Border.StrokeShape>
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnSaveClicked" />
-                    </Border.GestureRecognizers>
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="16"
-                        HorizontalOptions="Center"
-                        Text="Save Changes"
-                        TextColor="{StaticResource AppBackgroundColor}" />
-                </Border>
             </VerticalStackLayout>
         </ScrollView>
+
+        <!-- Cancel Button -->
+        <Border
+            Grid.Row="3"
+            Margin="24,8"
+            HeightRequest="56"
+            StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="28" />
+            </Border.StrokeShape>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked" />
+            </Border.GestureRecognizers>
+            <Border BackgroundColor="#ef4444">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28" />
+                </Border.StrokeShape>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="Cancel"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </Border>
+        </Border>
+
+        <!-- Save Button -->
+        <Border
+            Grid.Row="4"
+            Margin="24,8,24,16"
+            HeightRequest="56"
+            StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="28" />
+            </Border.StrokeShape>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnSaveClicked" />
+            </Border.GestureRecognizers>
+            <Border BackgroundColor="{StaticResource Primary}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28" />
+                </Border.StrokeShape>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="Save Changes"
+                    TextColor="{StaticResource AppBackgroundColor}"
+                    VerticalOptions="Center" />
+            </Border>
+        </Border>
     </Grid>
 </ContentPage>

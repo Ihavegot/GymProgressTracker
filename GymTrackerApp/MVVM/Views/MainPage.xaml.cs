@@ -1,7 +1,6 @@
 ﻿using GymTrackerApp.MVVM.Models;
 using GymTrackerApp.MVVM.Services;
 using GymTrackerApp.MVVM.Views;
-using System.Text.Json;
 
 namespace GymTrackerApp
 {
@@ -25,19 +24,6 @@ namespace GymTrackerApp
             await Shell.Current.GoToAsync(nameof(AddExercisePage));
         }
 
-        private async void LoadExercises()
-        {
-            try
-            {
-                var data = await _exerciseService.Read();
-                ProductsView.ItemsSource = data;
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", $"Failed to load exercises: {ex.Message}", "OK");
-            }
-        }
-
         private async void OnExerciseTapped(object sender, EventArgs e)
         {
             try
@@ -53,6 +39,19 @@ namespace GymTrackerApp
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"Failed to navigate to edit page: {ex.Message}", "OK");
+            }
+        }
+
+        private async void LoadExercises()
+        {
+            try
+            {
+                var data = await _exerciseService.Read();
+                ProductsView.ItemsSource = data;
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Failed to load exercises: {ex.Message}", "OK");
             }
         }
 
