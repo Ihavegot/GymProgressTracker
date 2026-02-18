@@ -110,6 +110,9 @@
                                         Radius="8"
                                         Offset="0,2" />
                                 </Border.Shadow>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnExerciseTapped" />
+                                </Border.GestureRecognizers>
 
                                 <Grid ColumnSpacing="16">
                                     <Grid.ColumnDefinitions>

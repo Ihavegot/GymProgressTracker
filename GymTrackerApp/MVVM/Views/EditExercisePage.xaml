@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GymTrackerApp.MVVM.Views.EditExercisePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{StaticResource AppBackgroundColor}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border
+            Grid.Row="0"
+            Padding="24,16"
+            BackgroundColor="{StaticResource AppHeaderBackgroundColorHeader}"
+            StrokeThickness="0">
+            <Border.Shadow>
+                <Shadow
+                    Brush="Black"
+                    Opacity="0.1"
+                    Radius="10"
+                    Offset="0,2" />
+            </Border.Shadow>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Back Button -->
+                <Border
+                    Grid.Column="0"
+                    Padding="8"
+                    BackgroundColor="Transparent"
+                    StrokeThickness="0"
+                    VerticalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackClicked" />
+                    </Border.GestureRecognizers>
+                    <Label
+                        FontSize="24"
+                        Text="←"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                </Border>
+
+                <!-- Title -->
+                <Label
+                    Grid.Column="1"
+                    Margin="12,0,0,0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Edit Exercise"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </Grid>
+        </Border>
+
+        <!-- Split Line -->
+        <BoxView
+            Grid.Row="1"
+            HeightRequest="1"
+            Color="{StaticResource Primary}"
+            HorizontalOptions="Fill" />
+
+        <!-- Form Content -->
+        <ScrollView Grid.Row="2" Padding="24">
+            <VerticalStackLayout Spacing="24">
+                <!-- Exercise Name -->
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="Exercise Name"
+                        TextColor="{StaticResource TextSecondary}" />
+                    <Border
+                        Padding="16,12"
+                        BackgroundColor="{StaticResource AppItemBackgroundColor}"
+                        StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+                        <Border.Stroke>
+                            <SolidColorBrush Color="{StaticResource BorderColor}" />
+                        </Border.Stroke>
+                        <Entry
+                            x:Name="ExerciseNameEntry"
+                            BackgroundColor="Transparent"
+                            Placeholder="Enter exercise name"
+                            PlaceholderColor="{StaticResource TextSecondary}"
+                            TextColor="White" />
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Reps/Time -->
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="Reps/Time"
+                        TextColor="{StaticResource TextSecondary}" />
+                    <Border
+                        Padding="16,12"
+                        BackgroundColor="{StaticResource AppItemBackgroundColor}"
+                        StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+                        <Border.Stroke>
+                            <SolidColorBrush Color="{StaticResource BorderColor}" />
+                        </Border.Stroke>
+                        <Entry
+                            x:Name="RepsOrTimeEntry"
+                            BackgroundColor="Transparent"
+                            Keyboard="Numeric"
+                            Placeholder="Enter reps or time"
+                            PlaceholderColor="{StaticResource TextSecondary}"
+                            TextColor="White" />
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Weight -->
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="Weight (kg)"
+                        TextColor="{StaticResource TextSecondary}" />
+                    <Border
+                        Padding="16,12"
+                        BackgroundColor="{StaticResource AppItemBackgroundColor}"
+                        StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+                        <Border.Stroke>
+                            <SolidColorBrush Color="{StaticResource BorderColor}" />
+                        </Border.Stroke>
+                        <Entry
+                            x:Name="WeightEntry"
+                            BackgroundColor="Transparent"
+                            Keyboard="Numeric"
+                            Placeholder="Enter weight"
+                            PlaceholderColor="{StaticResource TextSecondary}"
+                            TextColor="White" />
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Save Button -->
+                <Border
+                    Margin="0,16,0,0"
+                    Padding="16"
+                    BackgroundColor="{StaticResource Primary}"
+                    StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSaveClicked" />
+                    </Border.GestureRecognizers>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="Save Changes"
+                        TextColor="{StaticResource AppBackgroundColor}" />
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

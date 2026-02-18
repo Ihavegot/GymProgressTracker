@@ -38,6 +38,24 @@ namespace GymTrackerApp
             }
         }
 
+        private async void OnExerciseTapped(object sender, EventArgs e)
+        {
+            try
+            {
+                var gesture = sender as Element;
+                var exercise = gesture?.BindingContext as Exercise;
+
+                if (exercise == null)
+                    return;
+
+                await Shell.Current.GoToAsync($"{nameof(EditExercisePage)}?id={exercise.Id}");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Failed to navigate to edit page: {ex.Message}", "OK");
+            }
+        }
+
         public async void DeleteData(object sender, EventArgs e)
         {
             try
