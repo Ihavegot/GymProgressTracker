@@ -9,6 +9,8 @@ namespace GymTrackerApp
             InitializeComponent();
             Routing.RegisterRoute(nameof(AddExercisePage), typeof(AddExercisePage));
             Routing.RegisterRoute(nameof(EditExercisePage), typeof(EditExercisePage));
+            
+            Shell.SetNavBarIsVisible(this, false);
         }
     }
 }
