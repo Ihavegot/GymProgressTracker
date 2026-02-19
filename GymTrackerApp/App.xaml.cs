@@ -11,7 +11,7 @@ namespace GymTrackerApp
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new SplashPage());
+            return new Window(new AppShell());
         }
     }
 }
