@@ -229,8 +229,9 @@
                 </Border.StrokeShape>
                 <Label
                     FontAttributes="Bold"
-                    FontSize="36"
-                    HorizontalOptions="Center"
+                    FontSize="38"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
                     Text="+"
                     TextColor="{StaticResource AppBackgroundColor}"
                     VerticalOptions="Center" />
