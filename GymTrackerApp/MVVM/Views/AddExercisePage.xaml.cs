@@ -1,5 +1,6 @@
 using GymTrackerApp.MVVM.Models;
 using GymTrackerApp.MVVM.Services;
+using GymTrackerApp.MVVM.ViewModels;
 using Microsoft.Maui.Controls;
 
 namespace GymTrackerApp.MVVM.Views
@@ -12,6 +13,7 @@ namespace GymTrackerApp.MVVM.Views
         {
             InitializeComponent();
             _exerciseService = new ExerciseStorageService();
+            BindingContext = new ExerciseTypeViewModel();
         }
 
         private async void OnBackClicked(object sender, EventArgs e)
