@@ -7,14 +7,14 @@
     Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="Auto,Auto,*,Auto,Auto">
-        <!-- Header -->
+        <!--  Header  -->
         <Border
             Grid.Row="0"
             Padding="24,16"
             BackgroundColor="{StaticResource AppHeaderBackgroundColorHeader}"
             StrokeThickness="0">
             <Grid>
-                <!-- Title -->
+                <!--  Title  -->
                 <Label
                     FontAttributes="Bold"
                     FontSize="20"
@@ -25,17 +25,17 @@
             </Grid>
         </Border>
 
-        <!-- Split Line -->
+        <!--  Split Line  -->
         <BoxView
             Grid.Row="1"
             HeightRequest="1"
-            Color="{StaticResource Primary}"
-            HorizontalOptions="Fill" />
+            HorizontalOptions="Fill"
+            Color="{StaticResource Primary}" />
 
-        <!-- Form Content -->
+        <!--  Form Content  -->
         <ScrollView Grid.Row="2" Padding="24">
             <VerticalStackLayout Spacing="24">
-                <!-- Icon -->
+                <!--  Icon  -->
                 <Border
                     HeightRequest="80"
                     HorizontalOptions="Center"
@@ -56,12 +56,17 @@
                     </Border>
                 </Border>
 
-                <!-- Exercise Name -->
+                <Picker
+                    Title="Exercise type"
+                    ItemsSource="{Binding ExerciseTypes}"
+                    SelectedItem="{Binding SelectedExercise}" />
+
+                <!--  Exercise Name  -->
                 <VerticalStackLayout Spacing="8">
                     <Label
+                        CharacterSpacing="1"
                         FontAttributes="Bold"
                         FontSize="14"
-                        CharacterSpacing="1"
                         Text="EXERCISE NAME"
                         TextColor="{StaticResource Primary}" />
                     <Border
@@ -84,12 +89,12 @@
                     </Border>
                 </VerticalStackLayout>
 
-                <!-- Reps/Time -->
+                <!--  Reps/Time  -->
                 <VerticalStackLayout Spacing="8">
                     <Label
+                        CharacterSpacing="1"
                         FontAttributes="Bold"
                         FontSize="14"
-                        CharacterSpacing="1"
                         Text="REPETITIONS"
                         TextColor="{StaticResource Primary}" />
                     <Border
@@ -120,12 +125,12 @@
                     </Border>
                 </VerticalStackLayout>
 
-                <!-- Weight -->
+                <!--  Weight  -->
                 <VerticalStackLayout Spacing="8">
                     <Label
+                        CharacterSpacing="1"
                         FontAttributes="Bold"
                         FontSize="14"
-                        CharacterSpacing="1"
                         Text="WEIGHT"
                         TextColor="{StaticResource Primary}" />
                     <Border
@@ -158,7 +163,7 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- Cancel Button -->
+        <!--  Cancel Button  -->
         <Border
             Grid.Row="3"
             Margin="24,8"
@@ -184,7 +189,7 @@
             </Border>
         </Border>
 
-        <!-- Save Button -->
+        <!--  Save Button  -->
         <Border
             Grid.Row="4"
             Margin="24,8,24,16"
