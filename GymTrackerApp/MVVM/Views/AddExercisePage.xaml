@@ -49,6 +49,7 @@
                             <RoundRectangle CornerRadius="40" />
                         </Border.StrokeShape>
                         <Label
+                            x:Name="ExerciseTypeIcon"
                             FontSize="40"
                             HorizontalOptions="Center"
                             Text="🏋"
