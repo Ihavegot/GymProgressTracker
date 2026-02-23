@@ -3,6 +3,7 @@
     x:Class="GymTrackerApp.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:GymTrackerApp.MVVM"
     BackgroundColor="{StaticResource AppBackgroundColor}"
     Shell.NavBarIsVisible="False">
 
@@ -142,7 +143,22 @@
                                                 HorizontalOptions="Center"
                                                 Text="🏋"
                                                 TextColor="{StaticResource Primary}"
-                                                VerticalOptions="Center" />
+                                                VerticalOptions="Center">
+                                                <Label.Triggers>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding Type}" Value="{x:Static local:ExerciseType.FBW}">
+                                                        <Setter Property="Text" Value="🤸" />
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding Type}" Value="{x:Static local:ExerciseType.Chest}">
+                                                        <Setter Property="Text" Value="💪" />
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding Type}" Value="{x:Static local:ExerciseType.Back}">
+                                                        <Setter Property="Text" Value="🏋" />
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding Type}" Value="{x:Static local:ExerciseType.Legs}">
+                                                        <Setter Property="Text" Value="🦵" />
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
                                         </Border>
                                     </Border>
 

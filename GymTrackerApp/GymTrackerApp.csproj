@@ -63,10 +63,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="MVVM\ViewModels\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="MVVM\Views\AddExercisePage.xaml.cs">
 	    <DependentUpon>AddExercisePage.xaml</DependentUpon>
 	  </Compile>
