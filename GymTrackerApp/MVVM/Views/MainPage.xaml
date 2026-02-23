@@ -51,7 +51,7 @@
                             FontAttributes="Bold"
                             FontSize="16"
                             HorizontalOptions="Center"
-                            Text="💪"
+                            Text="🏃‍"
                             TextColor="{StaticResource Primary}"
                             VerticalOptions="Center" />
                     </Border>
@@ -82,7 +82,7 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="22"
-                        CharacterSpacing="2"
+                        CharacterSpacing="1"
                         Text="Saved sessions"
                         TextColor="{StaticResource Primary}" />
                 </VerticalStackLayout>
