@@ -57,6 +57,7 @@
                 </Border>
 
                 <Picker
+                    x:Name="TypePicker"
                     Title="Exercise type"
                     ItemsSource="{Binding ExerciseTypes}"
                     SelectedItem="{Binding SelectedExercise}" />
