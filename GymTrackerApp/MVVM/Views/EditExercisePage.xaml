@@ -44,10 +44,10 @@
                         FontSize="14"
                         Text="EXERCISE TYPE"
                         TextColor="{StaticResource Primary}" />
-                                    <Picker
-                        x:Name="TypePicker"
-                        ItemsSource="{Binding ExerciseTypes}"
-                        SelectedItem="{Binding SelectedExercise}" />
+                        <Picker
+                            x:Name="TypePicker"
+                            ItemsSource="{Binding ExerciseTypes}"
+                            SelectedItem="{Binding SelectedExercise}" />
                 </VerticalStackLayout>
 
                 <!-- Exercise Name -->

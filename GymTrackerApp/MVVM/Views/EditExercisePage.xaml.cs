@@ -1,5 +1,6 @@
 using GymTrackerApp.MVVM.Models;
 using GymTrackerApp.MVVM.Services;
+using GymTrackerApp.MVVM.ViewModels;
 using Microsoft.Maui.Controls;
 
 namespace GymTrackerApp.MVVM.Views
@@ -25,6 +26,7 @@ namespace GymTrackerApp.MVVM.Views
         {
             InitializeComponent();
             _exerciseService = new ExerciseStorageService();
+            BindingContext = new ExerciseTypeViewModel();
         }
 
         private async void LoadExercise()
@@ -39,6 +41,7 @@ namespace GymTrackerApp.MVVM.Views
                     ExerciseNameEntry.Text = _currentExercise.ExerciseName;
                     RepsOrTimeEntry.Text = _currentExercise.RepsOrTime;
                     WeightEntry.Text = _currentExercise.Weight;
+                    TypePicker.SelectedItem = _currentExercise.Type;
                 }
             }
             catch (Exception ex)
@@ -71,6 +74,7 @@ namespace GymTrackerApp.MVVM.Views
                 _currentExercise.ExerciseName = ExerciseNameEntry.Text;
                 _currentExercise.RepsOrTime = RepsOrTimeEntry.Text ?? string.Empty;
                 _currentExercise.Weight = WeightEntry.Text ?? string.Empty;
+                _currentExercise.Type = Enum.TryParse<ExerciseType>(TypePicker.SelectedItem?.ToString(), out var exerciseType) ? exerciseType : ExerciseType.FBW;
 
                 await _exerciseService.Update(_currentExercise);
                 await Shell.Current.GoToAsync("..");
