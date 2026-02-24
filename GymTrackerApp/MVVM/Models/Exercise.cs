@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GymTrackerApp.MVVM.Models
 {
-    class Exercise
+    public class Exercise
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string ExerciseName { get; set; } = "";

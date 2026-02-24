@@ -35,28 +35,6 @@
         <!--  Form Content  -->
         <ScrollView Grid.Row="2" Padding="24">
             <VerticalStackLayout Spacing="24">
-                <!--  Icon  
-                <Border
-                    HeightRequest="80"
-                    HorizontalOptions="Center"
-                    StrokeThickness="0"
-                    WidthRequest="80">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="40" />
-                    </Border.StrokeShape>
-                    <Border BackgroundColor="{StaticResource PrimaryWithAlpha10}">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="40" />
-                        </Border.StrokeShape>
-                        <Label
-                            x:Name="ExerciseTypeIcon"
-                            FontSize="40"
-                            HorizontalOptions="Center"
-                            Text="🏋"
-                            VerticalOptions="Center" />
-                    </Border>
-                </Border>
-                -->
                 
                 <!-- Exercise type -->
                 <VerticalStackLayout Spacing="8">

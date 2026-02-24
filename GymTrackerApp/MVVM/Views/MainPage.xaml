@@ -77,18 +77,58 @@
         <!-- Scrollable Content -->
         <ScrollView Grid.Row="2" Padding="24,24,24,100">
             <VerticalStackLayout Spacing="20">
+
+                <!-- Filter Buttons -->
+                <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
+                    <Button
+                        x:Name="AllButton"
+                        Text="All"
+                        FontAttributes="Bold"
+                        Clicked="OnFilterAll"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="{StaticResource AppBackgroundColor}"
+                        CornerRadius="8"
+                        Padding="16,8" />
+                    <Button
+                        x:Name="ChestButton"
+                        Text="💪 Chest"
+                        FontAttributes="Bold"
+                        Clicked="OnFilterChest"
+                        BackgroundColor="{StaticResource PrimaryWithAlpha20}"
+                        TextColor="{StaticResource Primary}"
+                        CornerRadius="8"
+                        Padding="16,8" />
+                    <Button
+                        x:Name="BackButton"
+                        Text="🏋 Back"
+                        FontAttributes="Bold"
+                        Clicked="OnFilterBack"
+                        BackgroundColor="{StaticResource PrimaryWithAlpha20}"
+                        TextColor="{StaticResource Primary}"
+                        CornerRadius="8"
+                        Padding="16,8" />
+                    <Button
+                        x:Name="LegsButton"
+                        Text="🦵 Legs"
+                        FontAttributes="Bold"
+                        Clicked="OnFilterLegs"
+                        BackgroundColor="{StaticResource PrimaryWithAlpha20}"
+                        TextColor="{StaticResource Primary}"
+                        CornerRadius="8"
+                        Padding="16,8" />
+                </HorizontalStackLayout>
+
                 <!-- Session Header -->
                 <VerticalStackLayout Spacing="8">
                     <Label
                         FontAttributes="Bold"
                         FontSize="22"
-                        CharacterSpacing="1"
                         Text="Saved sessions"
                         TextColor="{StaticResource Primary}" />
                 </VerticalStackLayout>
 
                 <!-- Exercise List -->
-                <CollectionView x:Name="ProductsView" ItemsSource="{Binding Exercise}">
+                <CollectionView ItemsSource="{Binding Exercise}">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
                     </CollectionView.ItemsLayout>
