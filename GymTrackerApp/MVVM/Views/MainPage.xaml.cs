@@ -22,6 +22,7 @@ namespace GymTrackerApp
         {
             base.OnAppearing();
             LoadExercises();
+            OnFilterAll(AllButton, EventArgs.Empty);
         }
 
         private async void OnNavigateClicked(object sender, EventArgs e)
