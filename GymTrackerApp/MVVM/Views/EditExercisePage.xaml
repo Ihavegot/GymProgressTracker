@@ -35,7 +35,21 @@
         <!-- Form Content -->
         <ScrollView Grid.Row="2" Padding="24">
             <VerticalStackLayout Spacing="24">
-                
+
+                <!-- Exercise type -->
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        CharacterSpacing="1"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="EXERCISE TYPE"
+                        TextColor="{StaticResource Primary}" />
+                        <Picker
+                            x:Name="TypePicker"
+                            ItemsSource="{Binding ExerciseTypes}"
+                            SelectedItem="{Binding SelectedExercise}" />
+                </VerticalStackLayout>
+
                 <!-- Exercise Name -->
                 <VerticalStackLayout Spacing="8">
                     <Label
