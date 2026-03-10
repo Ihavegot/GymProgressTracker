@@ -79,8 +79,9 @@
             <VerticalStackLayout Spacing="20">
 
                 <!-- Filter Buttons -->
-                <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
-                    <Button
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
+                        <Button
                         x:Name="AllButton"
                         Text="All"
                         FontAttributes="Bold"
@@ -89,7 +90,7 @@
                         TextColor="{StaticResource AppBackgroundColor}"
                         CornerRadius="8"
                         Padding="16,8" />
-                    <Button
+                        <Button
                         x:Name="ChestButton"
                         Text="💪 Chest"
                         FontAttributes="Bold"
@@ -98,7 +99,7 @@
                         TextColor="{StaticResource Primary}"
                         CornerRadius="8"
                         Padding="16,8" />
-                    <Button
+                        <Button
                         x:Name="BackButton"
                         Text="🔙 Back"
                         FontAttributes="Bold"
@@ -107,7 +108,7 @@
                         TextColor="{StaticResource Primary}"
                         CornerRadius="8"
                         Padding="16,8" />
-                    <Button
+                        <Button
                         x:Name="LegsButton"
                         Text="🦵 Legs"
                         FontAttributes="Bold"
@@ -116,7 +117,7 @@
                         TextColor="{StaticResource Primary}"
                         CornerRadius="8"
                         Padding="16,8" />
-                    <Button
+                        <Button
                         x:Name="ShouldersButton"
                         Text="🏋 Shoulders"
                         FontAttributes="Bold"
@@ -125,7 +126,8 @@
                         TextColor="{StaticResource Primary}"
                         CornerRadius="8"
                         Padding="16,8" />
-                </HorizontalStackLayout>
+                    </HorizontalStackLayout>
+                </ScrollView>
 
                 <!-- Session Header -->
                 <VerticalStackLayout Spacing="8">
