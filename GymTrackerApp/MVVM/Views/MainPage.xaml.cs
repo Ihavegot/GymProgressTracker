@@ -108,6 +108,9 @@ namespace GymTrackerApp
                 LegsButton.BackgroundColor = (Color)primaryWithAlpha20;
                 LegsButton.TextColor = (Color)primary;
 
+                ShouldersButton.BackgroundColor = (Color)primaryWithAlpha20;
+                ShouldersButton.TextColor = (Color)primary;
+
                 selectedButton.BackgroundColor = (Color)primary;
                 selectedButton.TextColor = (Color)appBackgroundColor;
             }
@@ -127,6 +130,11 @@ namespace GymTrackerApp
         {
             UpdateButtonStyles(BackButton);
             _viewModel.FilterByType(ExerciseType.Back);
+        }
+        private void OnFilterShoulders(object sender, EventArgs e)
+        {
+            UpdateButtonStyles(ShouldersButton);
+            _viewModel.FilterByType(ExerciseType.Shoulders);
         }
         private void OnFilterAll(object sender, EventArgs e)
         {

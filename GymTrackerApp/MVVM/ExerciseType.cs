@@ -10,10 +10,13 @@ namespace GymTrackerApp.MVVM
         [Description("Chest exercise")]
         Chest,
 
-        [Description("Shoulder exercise")]
+        [Description("Back exercise")]
         Back,
 
         [Description("Leg exercise")]
-        Legs
+        Legs,
+
+        [Description("Shoulder exercise")]
+        Shoulders
     }
 }

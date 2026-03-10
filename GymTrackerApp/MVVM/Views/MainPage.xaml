@@ -100,7 +100,7 @@
                         Padding="16,8" />
                     <Button
                         x:Name="BackButton"
-                        Text="🏋 Back"
+                        Text="🔙 Back"
                         FontAttributes="Bold"
                         Clicked="OnFilterBack"
                         BackgroundColor="{StaticResource PrimaryWithAlpha20}"
@@ -112,6 +112,15 @@
                         Text="🦵 Legs"
                         FontAttributes="Bold"
                         Clicked="OnFilterLegs"
+                        BackgroundColor="{StaticResource PrimaryWithAlpha20}"
+                        TextColor="{StaticResource Primary}"
+                        CornerRadius="8"
+                        Padding="16,8" />
+                    <Button
+                        x:Name="ShouldersButton"
+                        Text="🏋 Shoulders"
+                        FontAttributes="Bold"
+                        Clicked="OnFilterShoulders"
                         BackgroundColor="{StaticResource PrimaryWithAlpha20}"
                         TextColor="{StaticResource Primary}"
                         CornerRadius="8"
@@ -192,10 +201,13 @@
                                                         <Setter Property="Text" Value="💪" />
                                                     </DataTrigger>
                                                     <DataTrigger TargetType="Label" Binding="{Binding Type}" Value="{x:Static local:ExerciseType.Back}">
-                                                        <Setter Property="Text" Value="🏋" />
+                                                        <Setter Property="Text" Value="🔙" />
                                                     </DataTrigger>
                                                     <DataTrigger TargetType="Label" Binding="{Binding Type}" Value="{x:Static local:ExerciseType.Legs}">
                                                         <Setter Property="Text" Value="🦵" />
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding Type}" Value="{x:Static local:ExerciseType.Shoulders}">
+                                                        <Setter Property="Text" Value="🏋" />
                                                     </DataTrigger>
                                                 </Label.Triggers>
                                             </Label>
