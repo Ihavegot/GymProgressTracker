@@ -12,6 +12,7 @@ GymTrackerApp allows users to manage their gym exercises by adding, editing, and
 - ➕ **Add Exercise** – Log a new exercise with name, reps/time, and weight
 - ✏️ **Edit Exercise** – Update existing exercise details
 - 🗑️ **Delete Exercise** – Remove exercises with confirmation prompt
+- 🔍 **Filter Exercise** – Filter exercises by type
 
 ## Tech Stack
 
